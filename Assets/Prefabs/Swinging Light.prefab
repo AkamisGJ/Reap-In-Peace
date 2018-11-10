@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4681061192627320}
   - component: {fileID: 64440983451815116}
-  - component: {fileID: 114006850489688944}
+  - component: {fileID: 114063738581821400}
   m_Layer: 9
   m_Name: Conical Collider
   m_TagString: Untagged
@@ -125,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 1651163410362236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 4681061192627320}
   m_Father: {fileID: 4318167389111358}
@@ -164,7 +164,7 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
+    m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
@@ -182,7 +182,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114006850489688944
+--- !u!114 &114063738581821400
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5894698ffe2944944be2cc1a99194a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAngle: 30
+  maxAngle: 40
+  clampAngle: 30
   axeOfRotation: {x: 1, y: 0, z: 1}
-  swingingSpeed: 5
+  swingingSpeed: 2

@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class ConicalColliderTransform : MonoBehaviour {
 
-    Light light;
+    Light spotLight;
+    float angle;
+    float height;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         GameObject goLight = transform.parent.gameObject;
-        light = goLight.GetComponent<Light>();
+        spotLight = goLight.GetComponent<Light>();  
+	}
 
-        if(light != null && light.type == LightType.Spot)
+    private void Update()
+    {
+        if (spotLight != null && spotLight.type == LightType.Spot)
         {
-            float height = light.range;
-            float radius = Mathf.Sin((light.spotAngle / 2 * Mathf.PI)/180) * height;
+            angle = (spotLight.spotAngle / 2 * Mathf.PI) / 180;
+            height = spotLight.range;
+            float radius = Mathf.Sin(angle) * height;
 
             transform.localScale = new Vector3(
                 2 * radius,
@@ -22,18 +28,15 @@ public class ConicalColliderTransform : MonoBehaviour {
                 height
                 );
         }
-        
-	}
+    }
 
-    private void Update()
+    public float getHeight()
     {
-        float height = light.range;
-        float radius = Mathf.Sin((light.spotAngle / 2 * Mathf.PI) / 180) * height;
+        return height;
+    }
 
-        transform.localScale = new Vector3(
-                2 * radius,
-                2 * radius,
-                height
-                );
+    public float getAngle()
+    {
+        return angle;
     }
 }
