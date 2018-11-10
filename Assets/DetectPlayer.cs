@@ -23,8 +23,23 @@ public class DetectPlayer : MonoBehaviour {
 	/// <param name="other">The other Collider involved in this collision.</param>
 	void OnTriggerStay(Collider other)
 	{
-		print("Find Player");
-		navMesh.SetDestination(other.transform.position);
+		if(other.tag == "Player"){
+			print("Find Player");
+			parent.findplayer = true;
+			navMesh.SetDestination(other.transform.position);
+		}
 		
 	}
+
+	// /// <summary>
+	// /// OnTriggerExit is called when the Collider other has stopped touching the trigger.
+	// /// </summary>
+	// /// <param name="other">The other Collider involved in this collision.</param>
+	// void OnTriggerExit(Collider other)
+	// {
+	// 	if(other.tag == "Player"){
+	// 		print("Stop Find Player");
+	// 		parent.findplayer = false;
+	// 	}
+	// }
 }

@@ -10,7 +10,7 @@ public class ennemy : MonoBehaviour {
 	public bool clockwise;
 	public bool findplayer = false;
 
-	private int nodetogo;
+	public int nodetogo;
 	private Vector3 target;
 	private PathFindingNode[] nodes;
 	private NavMeshAgent navMeshAgent;
@@ -37,17 +37,20 @@ public class ennemy : MonoBehaviour {
 	/// <param name="other">The other Collider involved in this collision.</param>
 	void OnTriggerEnter(Collider other)
 	{
-		
-		if(other.tag == "Node" && other.GetComponent<PathFindingNode>().nodeNumber == nodetogo){
-			if(nodetogo < nodes.Length - 1){
-				nodetogo++;
-				SetTarget();
-			}else{
-				nodetogo = 0;
-				SetTarget();
+		if(findplayer == false){
+			if(other.tag == "Node" && other.GetComponent<PathFindingNode>().nodeNumber == nodetogo){
+				if(nodetogo < nodes.Length - 1){
+					nodetogo++;
+					SetTarget();
+				}else{
+					nodetogo = 0;
+					SetTarget();
+				}
 			}
 		}
-		print(nodetogo);
+		if(findplayer == true){
+
+		}
 	}
 
 	void SetTarget(){
