@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour
     void Start ()
     {
         _controller = GetComponent<CharacterController>();
+        camera = Camera.main;
     }
+
 
     Vector3 getCameraDirection()
     {

@@ -120,6 +120,8 @@ GameObject:
   - component: {fileID: 4637523620418668}
   - component: {fileID: 64127839980718952}
   - component: {fileID: 114453218590952276}
+  - component: {fileID: 23488414838245770}
+  - component: {fileID: 33019573551306218}
   m_Layer: 19
   m_Name: Detection
   m_TagString: Untagged
@@ -227,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 1507573322955076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.375, z: 0.396}
-  m_LocalScale: {x: 3.71, y: 0.86, z: 4.59}
+  m_LocalScale: {x: 5.17, y: 0.86, z: 4.59}
   m_Children:
   - {fileID: 4637523620418668}
   m_Father: {fileID: 4848538333067606}
@@ -459,6 +461,41 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23488414838245770
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715562226923566}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 8fc649b7a1f624843a2d6aa204db3cd5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23510264565674396
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -529,6 +566,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!33 &33019573551306218
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715562226923566}
+  m_Mesh: {fileID: 4300000, guid: 353fd3c3010ac98439db1431e97804d9, type: 3}
 --- !u!33 &33081236193940002
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -624,7 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PathFinding: {fileID: 0}
   startnode: 0
-  clockwise: 0
+  clockwise: 1
   findplayer: 0
   nodetogo: 0
 --- !u!114 &114875658963812474
@@ -638,7 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af381935e29efe744811ca3291b6f045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 3.71
+  angle: 5.17
   hauteur: 0.86
   distance: 4.59
 --- !u!136 &136633951940252692
@@ -666,7 +710,7 @@ NavMeshAgent:
   m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
