@@ -65,10 +65,6 @@ public class DetectLight : MonoBehaviour {
             {
                 visibility = true;
             }
-            //else
-            //{
-            //    visibility = false;
-            //}
 
             vComp.SetVisibility(visibility);
         }

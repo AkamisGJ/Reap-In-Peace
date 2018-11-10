@@ -53,4 +53,15 @@ public class ennemy : MonoBehaviour {
 	void SetTarget(){
 		target = nodes[nodetogo].transform.position;
 	}
+
+    void TargetPlayer(Vector3 playerPosition)
+    {
+        findplayer = true;
+        navMeshAgent.SetDestination(playerPosition);
+    }
+
+    void Patrol()
+    {
+        findplayer = false;
+    }
 }
