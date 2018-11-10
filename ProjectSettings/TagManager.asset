@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Node
   layers:
   - Default
   - TransparentFX
@@ -16,11 +17,14 @@ TagManager:
   - PostProcessing
   - DetectLight
   - UndetectLight
+  -
   - 
   - 
   - 
   - 
   - 
+  - Player
+  - Ennemy
   - 
   - 
   - 
