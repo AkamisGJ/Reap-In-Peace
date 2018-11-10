@@ -19,7 +19,7 @@ public class ConicalColliderTransform : MonoBehaviour {
         if (spotLight != null && spotLight.type == LightType.Spot)
         {
             angle = (spotLight.spotAngle / 2 * Mathf.PI) / 180;
-            height = spotLight.range;
+            height = spotLight.range / 2;
             float radius = Mathf.Sin(angle) * height;
 
             transform.localScale = new Vector3(
