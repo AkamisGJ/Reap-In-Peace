@@ -1,17 +1,34 @@
 fileFormatVersion: 2
-guid: dfd1d02c3c3de4918b3a9a06d0259346
+guid: ae6be85cbe3bb445d910af3da8ddc4bb
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: bras_d
+    100002: bras_g
+    100004: corps_low
+    100006: //RootNode
+    100008: Papa_mort_low_tete
+    400000: bras_d
+    400002: bras_g
+    400004: corps_low
+    400006: //RootNode
+    400008: Papa_mort_low_tete
     2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: faux_low
+    2300000: bras_d
+    2300002: bras_g
+    2300004: corps_low
+    2300006: Papa_mort_low_tete
+    3300000: bras_d
+    3300002: bras_g
+    3300004: corps_low
+    3300006: Papa_mort_low_tete
+    4300000: corps_low
+    4300002: bras_d
+    4300004: bras_g
+    4300006: Papa_mort_low_tete
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1

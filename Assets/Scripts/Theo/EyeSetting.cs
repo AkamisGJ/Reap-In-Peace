@@ -11,6 +11,7 @@ public class EyeSetting : MonoBehaviour {
 
 	[Range(0, 8)]
 	public float distance;
+	private Mesh mesh;
 	void Start () {
 		
 	}
