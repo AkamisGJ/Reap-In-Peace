@@ -17340,7 +17340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1762894359}
   forwardSpeed: 9
-  turnSpeed: 0.1
+  rotationTime: 0.1
+  maxRotationSpeed: 10000
 --- !u!1001 &1193870799
 Prefab:
   m_ObjectHideFlags: 0
