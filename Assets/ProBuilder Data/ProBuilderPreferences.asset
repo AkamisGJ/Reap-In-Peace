@@ -20,14 +20,22 @@ MonoBehaviour:
   - pbDefaultCollider
   - pbShadowCastingMode
   - pbDefaultStaticFlags
-  m_Float_keys: []
+  - pbDefaultEditLevel
+  - pbDefaultSelectionMode
+  - pb_GIWorkflowMode
+  - pbHandleAlignment
+  m_Float_keys:
+  - pbEditorScroll.x
+  - pbEditorScroll.y
   m_String_keys: []
   m_Color_keys: []
   m_Material_keys:
   - pbDefaultMaterial
   m_Bool_values: 01010000
-  m_Int_values: 020000000200000000000000
-  m_Float_values: []
+  m_Int_values: 02000000020000000000000000000000020000000000000000000000
+  m_Float_values:
+  - 0
+  - 0
   m_String_values: []
   m_Color_values: []
   m_Material_values:
