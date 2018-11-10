@@ -24,18 +24,10 @@ public class DetectPlayer : MonoBehaviour {
 	void OnTriggerStay(Collider other)
 	{
 		if(other.tag == "Player"){
-
-			RaycastHit hit;
-			LayerMask mask = LayerMask.NameToLayer("Player");
-			float distance = (transform.position - other.transform.position).magnitude;
-			Physics.Raycast(transform.position, other.transform.position, distance ,mask);
-
 			
 			print("Find Player");
 			parent.findplayer = true;
 			navMesh.SetDestination(other.transform.position);
-			
-
 
 		}
 		

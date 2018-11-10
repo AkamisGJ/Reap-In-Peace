@@ -48,11 +48,6 @@ public class ennemy : MonoBehaviour {
 				}
 			}
 		}
-
-
-		if(findplayer == true){
-
-		}
 	}
 
 	void SetTarget(){
