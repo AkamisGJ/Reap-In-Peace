@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour {
     private CharacterController _controller;
 
     Animator anim;
-    int idleHash = Animator.StringToHash ("Idle");
     int attackHash = Animator.StringToHash ("Attack");
+    int attackAnimationHash = Animator.StringToHash ("CoupDeFaux");
 
     void Start () {
         _controller = GetComponent<CharacterController> ();
@@ -63,7 +63,10 @@ public class PlayerController : MonoBehaviour {
 
     void handleAttack () {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo (0);
-        if (Input.GetKeyDown (KeyCode.Space)) {
+        bool attacked = Input.GetButton ("Fire1") || Input.GetKey (KeyCode.Space);
+        bool isAttacking = stateInfo.IsTag ("CoupDeFaux");
+
+        if (attacked && !isAttacking) {
             anim.SetTrigger (attackHash);
         }
     }
