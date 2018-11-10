@@ -1,12 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
-
-    // Keep reference to the camera in order to make movement
-    // relative to the current camera view.
-    public Camera camera;
+public class PlayerController : MonoBehaviour {
 
     public float forwardSpeed;
     public float turnSpeed;
@@ -16,46 +11,60 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastMovementDirection;
     private CharacterController _controller;
 
-    void Start ()
-    {
-        _controller = GetComponent<CharacterController>();
-        camera = Camera.main;
+    Animator anim;
+    int idleHash = Animator.StringToHash ("Idle");
+    int attackHash = Animator.StringToHash ("Attack");
+
+    void Start () {
+        _controller = GetComponent<CharacterController> ();
+        anim = GetComponent<Animator> ();
     }
 
-
-    Vector3 getCameraDirection()
-    {
+    // Used to to make movement
+    // relative to the current camera view.
+    Vector3 getCameraDirection () {
+        Camera camera = Camera.main;
         Vector3 cameraDirection = camera.transform.forward;
-        Vector3 planarCameraDirection = new Vector3(
+        Vector3 planarCameraDirection = new Vector3 (
             cameraDirection.x,
             0, // Discard the vertical axis
             cameraDirection.z
         );
 
-        return Vector3.Normalize(planarCameraDirection);
+        return Vector3.Normalize (planarCameraDirection);
     }
 
-    void Update()
-    {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector3 cameraForward = getCameraDirection();
-        Vector3 cameraRight = Vector3.Cross(Vector3.up, cameraForward);
+    void Update () {
+        handleMovement ();
+        handleAttack ();
+    }
+
+    void handleMovement () {
+        float horizontalInput = Input.GetAxis ("Horizontal");
+        float verticalInput = Input.GetAxis ("Vertical");
+        Vector3 cameraForward = getCameraDirection ();
+        Vector3 cameraRight = Vector3.Cross (Vector3.up, cameraForward);
         Vector3 movementDirection = cameraForward * verticalInput + cameraRight * horizontalInput;
 
         float moveAmount = forwardSpeed * Time.deltaTime;
-        _controller.Move(movementDirection * moveAmount);
+        _controller.Move (movementDirection * moveAmount);
 
-        if (movementDirection.magnitude > 0)
-        {
+        if (movementDirection.magnitude > 0) {
             // Store the last direction of any actual movement done.
-            lastMovementDirection = Vector3.Normalize(movementDirection);
+            lastMovementDirection = Vector3.Normalize (movementDirection);
         }
 
         // Slowly make the model orient to the current direction
         // TODO: Adjust with Time.deltaTime
-        Vector3 newDirection = Vector3.Slerp(transform.forward, lastMovementDirection, turnSpeed);
+        Vector3 newDirection = Vector3.Slerp (transform.forward, lastMovementDirection, turnSpeed);
 
-        transform.rotation = Quaternion.LookRotation(newDirection);
+        transform.rotation = Quaternion.LookRotation (newDirection);
+    }
+
+    void handleAttack () {
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo (0);
+        if (Input.GetKeyDown (KeyCode.Space)) {
+            anim.SetTrigger (attackHash);
+        }
     }
 }
