@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     // Track the last direction the player moved to. 
     // The model will align itself with this direction progressively
     private Vector3 lastMovementDirection;
+    private CharacterController _controller;
+
+    void Start ()
+    {
+        _controller = GetComponent<CharacterController>();
+    }
 
 
     /// <summary>
@@ -46,8 +52,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movementDirection = cameraForward * verticalInput + cameraRight * horizontalInput;
 
         float moveAmount = forwardSpeed * Time.deltaTime;
-        Vector3 translation = movementDirection * moveAmount;
-        transform.position += translation;
+        _controller.Move(movementDirection * moveAmount);
 
         if (movementDirection.magnitude > 0)
         {
