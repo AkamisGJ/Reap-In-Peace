@@ -88,6 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4935618909934076}
+  - component: {fileID: 95121545656539394}
   m_Layer: 17
   m_Name: PlayerArms
   m_TagString: Player
@@ -193,7 +194,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006759862378142}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 13.992502, y: 2.722, z: -9.768033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -538,6 +539,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685466942397622}
   m_Mesh: {fileID: 4300002, guid: 8da441465c2a5314b8b8ed95e4cd21dc, type: 3}
+--- !u!95 &95121545656539394
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449389019231476}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c58cb4e7e05f848f0939fa2b84e31a37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95243877193285942
 Animator:
   serializedVersion: 3
@@ -547,7 +566,7 @@ Animator:
   m_GameObject: {fileID: 1006759862378142}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9ff8129a08734c69bee16b4a22468e3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2dbdb6f4ee58641a79cded2b82fda2cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -567,7 +586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bedd872b624743bc89e9e0e8b59b1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
   forwardSpeed: 7
   turnSpeed: 0.1
 --- !u!143 &143477205676162658
