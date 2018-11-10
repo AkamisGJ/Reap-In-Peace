@@ -17,27 +17,33 @@ public class DetectLight : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine("CouroutineCheckVisibility", other);
+        Player player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            CheckVisibility(other);
+            //StartCoroutine("CouroutineCheckVisibility", other);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        StopCoroutine("CouroutineCheckVisibility");
-
         Player player = other.GetComponent<Player>();
         if (player != null)
+        {
+            CheckVisibility(other);
+            //StopCoroutine("CouroutineCheckVisibility");
             UpdateVisibility(other, false);
+        }
     }
 
-    private void UpdateVisibility(Collider other, bool newVisibility)
-    {
-        SetEnnemyVisibility(newVisibility);
-        visible = newVisibility;
-
-        Visibility visibilityScript = other.GetComponent<Visibility>();
-        if (visibilityScript != null)
-            visibilityScript.SetVisibility(newVisibility);
-    }
+    //IEnumerator CouroutineCheckVisibility(Collider other)
+    //{
+    //    while (true)
+    //    {
+    //        CheckVisibility(other);
+    //        yield return new WaitForSeconds(waitTime);
+    //    }
+    //}
 
     private void CheckVisibility(Collider other)
     {
@@ -53,11 +59,22 @@ public class DetectLight : MonoBehaviour {
             float maxDistance = Mathf.Clamp((pos - origin).magnitude, 0, cone.getHeight());
 
             Debug.DrawRay(origin, pos - origin, Color.magenta);
-            bool newVisibility = ! Physics.Raycast(origin, pos - origin, out hit, maxDistance, LayerMask.NameToLayer("Environnement"));
-
+            //bool newVisibility = ! Physics.Raycast(origin, pos - origin, out hit, maxDistance, LayerMask.NameToLayer("Environnement"));
+            int mask = 1 << LayerMask.NameToLayer("Environnement");
+            bool newVisibility = ! Physics.Raycast(origin, pos - origin, out hit, maxDistance, mask);
 
             UpdateVisibility(other, newVisibility);
         }
+    }
+
+    private void UpdateVisibility(Collider other, bool newVisibility)
+    {
+        SetEnnemyVisibility(newVisibility);
+        visible = newVisibility;
+
+        Visibility visibilityScript = other.GetComponent<Visibility>();
+        if (visibilityScript != null)
+            visibilityScript.SetVisibility(newVisibility);
     }
 
     public void SetEnnemyVisibility(bool newVisibility)
@@ -68,19 +85,15 @@ public class DetectLight : MonoBehaviour {
             {
                 ennemy.PlayerEnterFieldOfVision();
                 Debug.Log("JE T'AI VU!");
+            } 
+            else
+            {
+                ennemy.PlayerExitFieldOfVision();
+                Debug.Log("Mais t'es ou?");
             }
                 
-            else
-                ennemy.PlayerExitFieldOfVision();
         }
     }
 
-    IEnumerator CouroutineCheckVisibility(Collider other)
-    {
-        while (true)
-        {
-            CheckVisibility(other);
-            yield return new WaitForSeconds(waitTime);
-        }
-    }
+
 }

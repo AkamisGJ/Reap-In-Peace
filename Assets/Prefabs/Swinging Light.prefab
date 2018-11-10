@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4840914221199058}
   - component: {fileID: 114785803191385874}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Swinging Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4318167389111358}
   - component: {fileID: 108948648103609960}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4999209247764162}
   - component: {fileID: 114181625182520696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Conical Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474912053903524}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4999209247764162}
@@ -109,14 +109,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1285486154460154}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4318167389111358}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4999209247764162
 Transform:
   m_ObjectHideFlags: 1
@@ -155,9 +155,9 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 20
   m_Range: 20
-  m_SpotAngle: 60
+  m_SpotAngle: 40
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -173,7 +173,7 @@ Light:
   m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1707831
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5890069e27f674faadc507d7c83b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ennemy: {fileID: 0}
 --- !u!114 &114181625182520696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5894698ffe2944944be2cc1a99194a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAngle: 40
+  maxAngle: 30
   clampAngle: 30
-  axeOfRotation: {x: 1, y: 0, z: 1}
+  axeOfRotation: {x: 0, y: 0, z: 1}
   swingingSpeed: 2
