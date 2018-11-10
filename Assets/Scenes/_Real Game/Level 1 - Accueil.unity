@@ -17338,8 +17338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bedd872b624743bc89e9e0e8b59b1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 15
-  turnSpeed: 0.3
+  camera: {fileID: 1762894359}
+  forwardSpeed: 9
+  turnSpeed: 0.1
 --- !u!1001 &1193870799
 Prefab:
   m_ObjectHideFlags: 0
