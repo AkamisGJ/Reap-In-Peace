@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-    public float speed;
+    public float forwardSpeed;
+    public float turnSpeed;
 
-    void Update ()
+    void Update()
     {
-        float moveHorizontal = Input.GetAxis ("Horizontal");
-        float moveVertical = Input.GetAxis ("Vertical");
+        float turnInput = Input.GetAxis("Horizontal");
+        float turnAmount = turnInput * turnSpeed * Time.deltaTime;
+        transform.RotateAround(transform.position, Vector3.up, turnAmount);
 
-        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+        float forwardInput = Input.GetAxis("Vertical");
+        float moveAmount = forwardInput * forwardSpeed * Time.deltaTime;
 
-        transform.Translate(movement * speed * Time.deltaTime);
+        Vector3 direction = transform.forward;
+        transform.Translate(Vector3.forward * moveAmount);
     }
 }
