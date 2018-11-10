@@ -13,12 +13,11 @@ public class EyeSetting : MonoBehaviour {
 	public float distance;
 	private Mesh mesh;
 	void Start () {
-		mesh = GetComponentInChildren<MeshFilter>().mesh;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		transform.localScale = new Vector3(angle, hauteur, distance);
-		//Graphics.DrawMeshNow(mesh, transform.position, Quaternion.identity);
 	}
 }

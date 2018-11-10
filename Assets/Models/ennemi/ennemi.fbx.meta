@@ -1,34 +1,46 @@
 fileFormatVersion: 2
-guid: ae6be85cbe3bb445d910af3da8ddc4bb
+guid: 9029b7f71d037be49a38b3a95e6b7636
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: bras_d
-    100002: bras_g
-    100004: corps_low
+    100000: BRAS_d_ennemi1
+    100002: BRAS_g_ennemi
+    100004: corps
     100006: //RootNode
-    100008: Papa_mort_low_tete
-    400000: bras_d
-    400002: bras_g
-    400004: corps_low
+    100008: pied_d_ennemi1
+    100010: pied_g_ennemi
+    100012: tete_ennemi
+    400000: BRAS_d_ennemi1
+    400002: BRAS_g_ennemi
+    400004: corps
     400006: //RootNode
-    400008: Papa_mort_low_tete
+    400008: pied_d_ennemi1
+    400010: pied_g_ennemi
+    400012: tete_ennemi
     2100000: lambert1
-    2300000: bras_d
-    2300002: bras_g
-    2300004: corps_low
-    2300006: Papa_mort_low_tete
-    3300000: bras_d
-    3300002: bras_g
-    3300004: corps_low
-    3300006: Papa_mort_low_tete
-    4300000: corps_low
-    4300002: bras_d
-    4300004: bras_g
-    4300006: Papa_mort_low_tete
+    2300000: BRAS_d_ennemi1
+    2300002: BRAS_g_ennemi
+    2300004: corps
+    2300006: pied_d_ennemi1
+    2300008: pied_g_ennemi
+    2300010: tete_ennemi
+    3300000: BRAS_d_ennemi1
+    3300002: BRAS_g_ennemi
+    3300004: corps
+    3300006: pied_d_ennemi1
+    3300008: pied_g_ennemi
+    3300010: tete_ennemi
+    4300000: corps
+    4300002: BRAS_g_ennemi
+    4300004: pied_g_ennemi
+    4300006: BRAS_d_ennemi1
+    4300008: tete_ennemi
+    4300010: pied_d_ennemi1
+    7400000: Take 001
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -77,8 +89,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -102,7 +114,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
