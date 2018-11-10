@@ -8,8 +8,9 @@ public class ennemy : MonoBehaviour {
 	public GameObject PathFinding;
 	public int startnode;
 	public bool clockwise;
+	public bool findplayer = false;
 
-	public int nodetogo;
+	private int nodetogo;
 	private Vector3 target;
 	private PathFindingNode[] nodes;
 	private NavMeshAgent navMeshAgent;
@@ -25,7 +26,9 @@ public class ennemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		navMeshAgent.SetDestination(target);
+		if(findplayer == false){
+			navMeshAgent.SetDestination(target);
+		}
 	}
 
 	/// <summary>
