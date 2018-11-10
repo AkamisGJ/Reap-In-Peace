@@ -15,6 +15,16 @@ public class PlayerController : MonoBehaviour
     // The model will align itself with this direction progressively
     private Vector3 lastMovementDirection;
 
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        camera = Camera.main;
+    }
+
     Vector3 getCameraDirection()
     {
         Vector3 cameraDirection = camera.transform.forward;

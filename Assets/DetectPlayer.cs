@@ -24,22 +24,29 @@ public class DetectPlayer : MonoBehaviour {
 	void OnTriggerStay(Collider other)
 	{
 		if(other.tag == "Player"){
+
+			RaycastHit hit;
+			LayerMask mask = LayerMask.NameToLayer("Player");
+			float distance = (transform.position - other.transform.position).magnitude;
+			Physics.Raycast(transform.position, other.transform.position, distance ,mask);
+
+			
 			print("Find Player");
 			parent.findplayer = true;
 			navMesh.SetDestination(other.transform.position);
+			
+
+
 		}
 		
 	}
 
-	// /// <summary>
-	// /// OnTriggerExit is called when the Collider other has stopped touching the trigger.
-	// /// </summary>
-	// /// <param name="other">The other Collider involved in this collision.</param>
-	// void OnTriggerExit(Collider other)
-	// {
-	// 	if(other.tag == "Player"){
-	// 		print("Stop Find Player");
-	// 		parent.findplayer = false;
-	// 	}
-	// }
+	
+	void OnTriggerExit(Collider other)
+	{
+		if(other.tag == "Player"){
+			print("Stop Find Player");
+			parent.findplayer = false;
+		}
+	}
 }

@@ -39,7 +39,7 @@ public class ennemy : MonoBehaviour {
 	{
 		if(findplayer == false){
 			if(other.tag == "Node" && other.GetComponent<PathFindingNode>().nodeNumber == nodetogo){
-				if(nodetogo < nodes.Length - 1){
+				if(nodetogo < nodes.Length - 1 && clockwise == true){
 					nodetogo++;
 					SetTarget();
 				}else{
@@ -48,6 +48,8 @@ public class ennemy : MonoBehaviour {
 				}
 			}
 		}
+
+
 		if(findplayer == true){
 
 		}
