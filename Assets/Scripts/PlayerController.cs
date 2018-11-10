@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
 
     public float forwardSpeed;
     public float turnSpeed;
+    public float gravity;
 
     // Track the last direction the player moved to. 
     // The model will align itself with this direction progressively
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
     int attackHash = Animator.StringToHash ("Attack");
     int attackAnimationHash = Animator.StringToHash ("CoupDeFaux");
+    private bool attack = false;
 
     void Start () {
         _controller = GetComponent<CharacterController> ();
@@ -47,7 +49,9 @@ public class PlayerController : MonoBehaviour {
         Vector3 movementDirection = cameraForward * verticalInput + cameraRight * horizontalInput;
 
         float moveAmount = forwardSpeed * Time.deltaTime;
-        _controller.Move (movementDirection * moveAmount);
+        _controller.Move (movementDirection * moveAmount - (Vector3.up * gravity * Time.deltaTime));
+
+
 
         if (movementDirection.magnitude > 0) {
             // Store the last direction of any actual movement done.
@@ -68,18 +72,21 @@ public class PlayerController : MonoBehaviour {
 
         if (attacked && !isAttacking) {
             anim.SetTrigger (attackHash);
+            GetComponent<AudioSource>().PlayDelayed(0.30f);
+        }
+    }
+    public void ToogleAttack(){
+        attack = !attack;
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if(other.transform.tag == "Boss" && attack == true){
+            
+            Destroy(other.gameObject);
         }
     }
 
-    /// <summary>
-    /// OnTriggerEnter is called when the Collider other enters the trigger.
-    /// </summary>
-    /// <param name="other">The other Collider involved in this collision.</param>
-    void OnTriggerStay(Collider other)
-    {
-        if(other.transform.tag == "Boss" && Input.GetButtonDown("Fire1")){
-            Destroy(other);
-        }
-    }
+    
 
 }
