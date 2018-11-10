@@ -17,7 +17,7 @@ TagManager:
   - PostProcessing
   - DetectLight
   - UndetectLight
-  - 
+  - Environnement
   - 
   - 
   - 
@@ -27,9 +27,6 @@ TagManager:
   - Ennemy
   - VisionEnnemy
   - Node
-  - 
-  - 
-  - 
   - 
   - 
   - 
