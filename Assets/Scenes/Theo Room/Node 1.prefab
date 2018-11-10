@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4570313420678818}
   - component: {fileID: 114248547848871752}
   - component: {fileID: 135512541830803242}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Node 1
   m_TagString: Node
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192147250553942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.44, z: -1.24}
+  m_LocalPosition: {x: -1.8, y: 4.44, z: -4.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4653148f9333243876d343b264cfd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeNumber: 1
+  nodeNumber: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   radius: 0.5
 --- !u!135 &135512541830803242
