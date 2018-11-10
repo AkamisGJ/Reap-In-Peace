@@ -19,17 +19,9 @@ public class PlayerController : MonoBehaviour
     void Start ()
     {
         _controller = GetComponent<CharacterController>();
-    }
-
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
-    void Start()
-    {
         camera = Camera.main;
     }
+
 
     Vector3 getCameraDirection()
     {
