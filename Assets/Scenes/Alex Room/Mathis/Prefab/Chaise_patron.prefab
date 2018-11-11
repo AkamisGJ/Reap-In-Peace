@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33465401887441594}
   - component: {fileID: 23168164516063464}
   - component: {fileID: 64401139816115746}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Chaise_patron
   m_TagString: Untagged
   m_Icon: {fileID: 0}

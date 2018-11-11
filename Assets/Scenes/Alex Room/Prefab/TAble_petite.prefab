@@ -21,7 +21,9 @@ GameObject:
   - component: {fileID: 4890727198456528}
   - component: {fileID: 33684528153235120}
   - component: {fileID: 23911489674541540}
-  m_Layer: 0
+  - component: {fileID: 64167962013420004}
+  - component: {fileID: 114370133932159572}
+  m_Layer: 11
   m_Name: TAble_petite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,13 +36,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287157224555638}
-  m_LocalRotation: {x: -0, y: 0.7071071, z: -0, w: 0.7071065}
-  m_LocalPosition: {x: 13.007, y: 1.459, z: 49.97}
-  m_LocalScale: {x: 0.015, y: 0.002, z: 0.02}
+  m_LocalRotation: {x: -0, y: 0.0000004917383, z: -0, w: 1}
+  m_LocalPosition: {x: -1.53, y: 2.459, z: 2.35}
+  m_LocalScale: {x: 0.015, y: 0.0019999999, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23911489674541540
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,3 +85,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287157224555638}
   m_Mesh: {fileID: 4300000, guid: e46cf24dd59ceaa4a88cd4835ffa5222, type: 3}
+--- !u!64 &64167962013420004
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287157224555638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: e46cf24dd59ceaa4a88cd4835ffa5222, type: 3}
+--- !u!114 &114370133932159572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287157224555638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
