@@ -6,13 +6,8 @@ public class Boss : MonoBehaviour {
 
     public string name;
 	public float max_velocity = 15f;
-<<<<<<< HEAD
-	public float velocity;
 	public Transform[] pathfinding;
-	public string name;
-	
-=======
->>>>>>> 2164740c9cb948107db838a5b7fb1d9b308bba28
+
 
     //public float velocity;
     public float cMoveAwayPlayer = 1;
@@ -24,8 +19,6 @@ public class Boss : MonoBehaviour {
 
     public float gravity = 10;
 
-
-    public Transform[] pathfinding;
 
     public Kill_List killList;
 
