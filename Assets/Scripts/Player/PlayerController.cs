@@ -74,12 +74,14 @@ public class PlayerController : MonoBehaviour {
 
         if (attacked && !isAttacking) {
             anim.SetTrigger (attackHash);
-            GetComponent<AudioSource>().PlayDelayed(0.30f);
+            //GetComponent<AudioSource>().PlayDelayed(0.30f);
         }
     }
     public void ToogleAttack(){
         attack = !attack;
         Debug.Log("Toggle Attack");
+        if(attack)
+            GetComponent<AudioSource>().Play();
     }
 
     void OnTriggerStay(Collider other)
