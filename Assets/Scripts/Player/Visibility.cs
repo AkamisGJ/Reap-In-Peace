@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Visibility : MonoBehaviour {
 
-    bool visible;
-    MeshRenderer meshRenderer;
+    public bool visible;
+    public ParticleSystem particleShadow;
 
 	// Use this for initialization
 	void Start () {
-        visible = false;
-        meshRenderer = GetComponent<MeshRenderer>();
+        visible = false;       
+        UpdateVisibilityEffect();
 	}
 
     public void SetVisibility(bool visibility)
@@ -24,13 +24,13 @@ public class Visibility : MonoBehaviour {
 
     public void UpdateVisibilityEffect()
     {
-        //TODO MODIFY
-        if(meshRenderer != null)
+        if (particleShadow != null)
         {
             if (visible)
-                meshRenderer.material.SetColor("_Color", Color.red);
+                particleShadow.Stop();
             else
-                meshRenderer.material.SetColor("_Color", Color.white);
+                if (!particleShadow.isPlaying)
+                    particleShadow.Play();
         }
     }
 }

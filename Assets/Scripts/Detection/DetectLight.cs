@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DetectLight : MonoBehaviour {
 
-    public Ennemy ennemy;
+    private Ennemy ennemy;
 
     ConicalColliderTransform cone;
-    float waitTime = 0.01f;
     bool visible;
 
     private void Awake()
     {
         cone = transform.parent.gameObject.GetComponent<ConicalColliderTransform>();
+        ennemy = transform.parent.parent.parent.parent.gameObject.GetComponent<Ennemy>();
+
+        if (ennemy == null)
+            Debug.Log("ERROR : no ennemy in Detect Light");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,7 +24,6 @@ public class DetectLight : MonoBehaviour {
         if (player != null)
         {
             CheckVisibility(other);
-            //StartCoroutine("CouroutineCheckVisibility", other);
         }
     }
 
@@ -31,7 +33,6 @@ public class DetectLight : MonoBehaviour {
         if (player != null)
         {
             CheckVisibility(other);
-            //StartCoroutine("CouroutineCheckVisibility", other);
         }
     }
 
@@ -41,19 +42,9 @@ public class DetectLight : MonoBehaviour {
         if (player != null)
         {
             CheckVisibility(other);
-            //StopCoroutine("CouroutineCheckVisibility");
             UpdateVisibility(other, false);
         }
     }
-
-    //IEnumerator CouroutineCheckVisibility(Collider other)
-    //{
-    //    while (true)
-    //    {
-    //        CheckVisibility(other);
-    //        yield return new WaitForSeconds(waitTime);
-    //    }
-    //}
 
     private void CheckVisibility(Collider other)
     {
@@ -100,10 +91,7 @@ public class DetectLight : MonoBehaviour {
             {
                 ennemy.PlayerExitFieldOfVision();
                 Debug.Log("Mais t'es ou?");
-            }
-                
+            }    
         }
     }
-
-
 }

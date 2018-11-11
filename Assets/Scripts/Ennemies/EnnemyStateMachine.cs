@@ -68,6 +68,7 @@ public class EnnemyStateMachine {
     public State MoveNext(Command command)
     {
         currentState = GetNext(command);
+        Debug.Log("State : " + currentState.ToString());
         return currentState;
     }
 
