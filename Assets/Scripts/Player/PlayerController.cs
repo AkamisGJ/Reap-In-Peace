@@ -37,8 +37,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update () {
-        handleMovement ();
-        handleAttack ();
+        if(gamecontrolleur.PauseState == false){
+            handleMovement ();
+            handleAttack ();
+        }
     }
 
     void handleMovement () {
