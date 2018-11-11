@@ -93,12 +93,26 @@ public class PlayerController : MonoBehaviour {
             soundAttack.Play ();
     }
 
+<<<<<<< HEAD
     void OnTriggerStay (Collider other) {
         if (attack) {
             Debug.Log ("Kill");
             if (other.CompareTag ("Boss")) {
                 Destroy (other.gameObject);
                 Kill_List.Kill(other.GetComponent<Boss>().name);
+=======
+    void OnTriggerStay(Collider other)
+    {
+        if(attack)
+        {
+            Debug.Log("Kill");
+            if(other.CompareTag("Boss")){
+                Boss boss = other.GetComponent<Boss>();
+                if (boss != null)
+                {
+                    boss.Kill();
+                }
+>>>>>>> 2164740c9cb948107db838a5b7fb1d9b308bba28
             }
 
             if (other.CompareTag ("Ennemy")) {
