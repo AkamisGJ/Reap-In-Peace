@@ -22,6 +22,9 @@ public class gamecontrolleur : MonoBehaviour {
 	public void LoadLevel(int level){
 		SceneManager.LoadScene(level);
 	}
+	public void LoadNextLevel(){
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
 
 	public void QuitGame(){
 		Application.Quit();
