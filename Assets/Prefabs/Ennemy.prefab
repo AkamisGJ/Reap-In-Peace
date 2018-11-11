@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 136633951940252692}
   - component: {fileID: 195874082565503350}
   - component: {fileID: 54625590335342852}
-  - component: {fileID: 114839752800887308}
+  - component: {fileID: 114309220890623996}
   m_Layer: 18
   m_Name: Ennemy
   m_TagString: Untagged
@@ -708,7 +708,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5890069e27f674faadc507d7c83b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ennemy: {fileID: 114839752800887308}
+  ennemy: {fileID: 0}
+--- !u!114 &114309220890623996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734276462024676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7801995fce8ba41349ea2192be2e861c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  deltaDistance: 2
+  PathFinding: {fileID: 0}
+  backAndForth: 1
+  step: 1
 --- !u!114 &114333158924738076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -735,23 +751,6 @@ MonoBehaviour:
   clampAngle: 30
   axeOfRotation: {x: 0, y: 0, z: 1}
   swingingSpeed: 2
---- !u!114 &114839752800887308
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1734276462024676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee12d2987b112654181eb974d7f52b1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  deltaDistance: 2
-  clockwise: 1
-  PathFinding: {fileID: 0}
-  startnode: 0
-  nodetogo: 0
 --- !u!136 &136633951940252692
 CapsuleCollider:
   m_ObjectHideFlags: 1

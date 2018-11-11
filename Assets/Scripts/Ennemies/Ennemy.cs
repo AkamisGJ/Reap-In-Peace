@@ -8,171 +8,158 @@ public class Ennemy : MonoBehaviour {
     public Player player;
     public float deltaDistance = 2f;
 
-
     //Nav Mesh parameters
-    public bool clockwise;
+
     public GameObject PathFinding;
-	private NavMeshAgent navMeshAgent;
+    // Pour faire des aller retours, ou bien des rondes.
+    public bool backAndForth = true;
+    private NavMeshAgent navMeshAgent;
     private PathFindingNode[] nodes;
-    public int startnode;
-    private int nodetogo;
+    // Index of the next node
+    private int nodetogo = 0;
+    // +1 when going over nodes in order. -1 when going in reverse order
+    public int step = +1;
 
     //Targets
     private Vector3 navMeshTarget = Vector3.zero;
     private Vector3 alertTarget = Vector3.zero;
     private Vector3 playerTarget = Vector3.zero;
 
-    
-
     private EnnemyStateMachine stateMachine;
 
-	// Use this for initialization
-	void Start () {
-        stateMachine = new EnnemyStateMachine();
-        //GameObject goPlayer = GameObject.FindGameObjectWithTag("Player");
-        //if (goPlayer != null)
-        //    goPlayer.GetComponents<Player>();
+    // Use this for initialization
+    void Start () {
+        stateMachine = new EnnemyStateMachine ();
 
         //Init Nav Mesh Agent
-        nodetogo = startnode;
-        nodes = PathFinding.GetComponentsInChildren<PathFindingNode>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        UpdateNavMeshPath();
-        print("Number of Nodes: " + nodes.Length);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        UpdateBehaviorFromStateMachine();
-	}
+        nodes = PathFinding.GetComponentsInChildren<PathFindingNode> ();
+        navMeshAgent = GetComponent<NavMeshAgent> ();
+        SetNavMeshTarget ();
+        print ("Number of Nodes: " + nodes.Length);
+    }
 
-    private void UpdateBehaviorFromStateMachine()
-    {
-        switch (stateMachine.currentState)
-        {
+    // Update is called once per frame
+    void Update () {
+        UpdateBehaviorFromStateMachine ();
+    }
+
+    private void UpdateBehaviorFromStateMachine () {
+        switch (stateMachine.currentState) {
             case State.Win:
-                Idle();
+                Idle ();
                 break;
             case State.Patrolling:
-                Patrol();
+                Patrol ();
                 break;
             case State.Alerted:
-                Alert();
+                Alert ();
                 break;
             case State.Seeking:
-                Seek();
+                Seek ();
                 break;
             case State.Dead:
-                Die();
+                Die ();
                 break;
         }
     }
 
     //EVENTS
     //OUT
-    private void AlertOthers()
-    {
+    private void AlertOthers () {
         //TODO
         //Get Near enemies
         //For each near ennemis - alert
     }
 
     //IN
-    public void Alert (Vector3 position)
-    {
+    public void Alert (Vector3 position) {
         alertTarget = position;
-        stateMachine.MoveNext(Command.Alert);
-        Debug.Log("ALERT");
+        stateMachine.MoveNext (Command.Alert);
+        Debug.Log ("ALERT");
     }
 
-    public void Kill()
-    {
-        stateMachine.MoveNext(Command.Die);
-        Debug.Log("DEAD");
+    public void Kill () {
+        stateMachine.MoveNext (Command.Die);
+        Debug.Log ("DEAD");
     }
 
-    public void PlayerEnterFieldOfVision()
-    {
-        stateMachine.MoveNext(Command.Seek);
-        Debug.Log("SEEK");
+    public void PlayerEnterFieldOfVision () {
+        stateMachine.MoveNext (Command.Seek);
+        Debug.Log ("SEEK");
     }
 
-    public void PlayerExitFieldOfVision()
-    {
+    public void PlayerExitFieldOfVision () {
         alertTarget = playerTarget;
-        stateMachine.MoveNext(Command.LoseTrack);
-        Debug.Log("ALERT");
+        stateMachine.MoveNext (Command.LoseTrack);
+        Debug.Log ("ALERT");
     }
 
     //IN - TRIGGER EVENT
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Node") && other.GetComponent<PathFindingNode>().nodeNumber == nodetogo)
-        {
-            UpdateNavMeshPath();
+    private void OnTriggerEnter (Collider other) {
+        Collider target = nodes[nodetogo].GetComponent<Collider> ();
+
+        if (other == target) {
+            UpdateNextNavMeshNode ();
+            SetNavMeshTarget();
         }
     }
 
-
     //BEHAVIORS
-    private void Idle()
-    {
+    private void Idle () {
         navMeshAgent.isStopped = true;
     }
 
-    private void Seek()
-    {
+    private void Seek () {
         navMeshAgent.isStopped = false;
 
         playerTarget = player.transform.position;
-        navMeshAgent.SetDestination(playerTarget);
+        navMeshAgent.SetDestination (playerTarget);
 
-        if ((transform.position - playerTarget).magnitude < deltaDistance)
-        {
-            Debug.Log("WIN !!!! (ENNEMY)");
-            stateMachine.MoveNext(Command.Win);
+        if ((transform.position - playerTarget).magnitude < deltaDistance) {
+            Debug.Log ("WIN !!!! (ENNEMY)");
+            stateMachine.MoveNext (Command.Win);
         }
-            
+
     }
 
-    private void Alert()
-    {
+    private void Alert () {
         navMeshAgent.isStopped = false;
-        navMeshAgent.SetDestination(alertTarget);
+        navMeshAgent.SetDestination (alertTarget);
 
-        if ((transform.position - alertTarget).magnitude < deltaDistance)
-        {
-            Debug.Log("PATROLLING");
-            stateMachine.MoveNext(Command.Patrol);
+        if ((transform.position - alertTarget).magnitude < deltaDistance) {
+            Debug.Log ("PATROLLING");
+            stateMachine.MoveNext (Command.Patrol);
         }
-            
+
     }
 
-    private void Patrol()
-    {
+    private void Patrol () {
         navMeshAgent.isStopped = false;
-        navMeshAgent.SetDestination(navMeshTarget);
+        navMeshAgent.SetDestination (navMeshTarget);
     }
 
-    private void Die()
-    {
+    private void Die () {
         navMeshAgent.isStopped = true;
     }
 
-
     //NAV MESH
-    private void UpdateNavMeshPath()
-    {
-        //Calculate index
-        int increment = clockwise ? 1 : -1;
-        nodetogo += increment;
+    private void UpdateNextNavMeshNode () {
+        // Switch to next path node
+        int next = nodetogo + step;
+        if (next == -1 || next == nodes.Length) {
+            // We found the last node.
+            if (backAndForth) {
+                step = -step;
+                next = nodetogo + step;
+            } else {
+                next = 0;
+            }
+        }
 
-        while (nodetogo < 0)
-            nodetogo += nodes.Length;
+        nodetogo = next;
+    }
 
-        nodetogo = nodetogo % nodes.Length;
-
-        //Update navmesh target
+    void SetNavMeshTarget () {
         navMeshTarget = nodes[nodetogo].transform.position;
     }
 }
