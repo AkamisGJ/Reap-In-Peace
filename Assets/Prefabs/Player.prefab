@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 95121545656539394}
   m_Layer: 17
   m_Name: PlayerArms
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
