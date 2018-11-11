@@ -24,9 +24,11 @@ public class Ennemy : MonoBehaviour {
 
     private EnnemyStateMachine stateMachine;
     private Player player;
+    private gamecontrolleur gamecontrolleur;
 
     // Use this for initialization
     void Start () {
+        gamecontrolleur = FindObjectOfType<gamecontrolleur>();
         stateMachine = new EnnemyStateMachine ();
 
         GameObject goPlayer = GameObject.FindGameObjectWithTag("Player");
@@ -52,6 +54,7 @@ public class Ennemy : MonoBehaviour {
         switch (stateMachine.currentState) {
             case State.Win:
                 Idle ();
+                PlayerLoose();
                 break;
             case State.Patrolling:
                 Patrol ();
@@ -124,6 +127,10 @@ public class Ennemy : MonoBehaviour {
     //BEHAVIORS
     private void Idle () {
         navMeshAgent.isStopped = true;
+    }
+
+    private void PlayerLoose(){
+        gamecontrolleur.LooseGame();
     }
 
     private void Seek () {
