@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33707238463849470}
   - component: {fileID: 23501478861296480}
   - component: {fileID: 64920296051025224}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: socle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33577517353844190}
   - component: {fileID: 23416298601785280}
   - component: {fileID: 64624375309361460}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pPlatonic4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4347877511337088}
   - component: {fileID: 64262235141457892}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: plante
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 33656224739285944}
   - component: {fileID: 23871052846262170}
   - component: {fileID: 64962477203145776}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 33233813366390306}
   - component: {fileID: 23809510752357722}
   - component: {fileID: 64773447246230912}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pPlatonic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 33634264221799208}
   - component: {fileID: 23671700025996994}
   - component: {fileID: 64612448936559676}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pPlatonic2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488793549604770}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.41, y: 1, z: 150.99}
+  m_LocalPosition: {x: -10.91, y: 5, z: 159.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4578726379067120}
