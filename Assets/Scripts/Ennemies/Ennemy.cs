@@ -96,9 +96,9 @@ public class Ennemy : MonoBehaviour {
 
     //IN - TRIGGER EVENT
     private void OnTriggerEnter (Collider other) {
-        Collider target = nodes[nodetogo].GetComponent<Collider> ();
+        Collider targeyNodes = nodes[nodetogo].GetComponent<Collider> ();
 
-        if (other == target) {
+        if (other == targeyNodes) {
             UpdateNextNavMeshNode ();
             SetNavMeshTarget();
         }
