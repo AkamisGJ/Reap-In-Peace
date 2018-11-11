@@ -719,7 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7801995fce8ba41349ea2192be2e861c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proximityDistance: 2
+  proximityDistance: 1
   alertDistance: 10
   PathFinding: {fileID: 0}
   backAndForth: 1
