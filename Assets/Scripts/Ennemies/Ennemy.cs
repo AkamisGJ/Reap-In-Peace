@@ -5,21 +5,17 @@ using UnityEngine.AI;
 
 public class Ennemy : MonoBehaviour {
 
-    public Player player;
+    
     public float proximityDistance = 2f;
     public float alertDistance = 10f;
 
     //Nav Mesh parameters
-
     public GameObject PathFinding;
-    // Pour faire des aller retours, ou bien des rondes.
-    public bool backAndForth = true;
+    public bool backAndForth = true;    // Pour faire des aller retours, ou bien des rondes.
     private NavMeshAgent navMeshAgent;
-    private PathFindingNode[] nodes;
-    // Index of the next node
-    private int nodetogo = 0;
-    // +1 when going over nodes in order. -1 when going in reverse order
-    public int step = +1;
+    private PathFindingNode[] nodes;   
+    private int nodetogo = 0;   // Index of the next node
+    public int step = +1;   // +1 when going over nodes in order. -1 when going in reverse order
 
     //Targets
     private Vector3 navMeshTarget = Vector3.zero;
@@ -27,16 +23,24 @@ public class Ennemy : MonoBehaviour {
     private Vector3 playerTarget = Vector3.zero;
 
     private EnnemyStateMachine stateMachine;
+    private Player player;
 
     // Use this for initialization
     void Start () {
         stateMachine = new EnnemyStateMachine ();
 
+        GameObject goPlayer = GameObject.FindGameObjectWithTag("Player");
+        if (goPlayer != null)
+            player = goPlayer.GetComponent<Player>();
+
+        if (player == null)
+            Debug.Log("ERROR : no player ref in Ennemy");
+
         //Init Nav Mesh Agent
         nodes = PathFinding.GetComponentsInChildren<PathFindingNode> ();
         navMeshAgent = GetComponent<NavMeshAgent> ();
         SetNavMeshTarget ();
-        print ("Number of Nodes: " + nodes.Length);
+        Debug.Log("Number of Nodes: " + nodes.Length);
     }
 
     // Update is called once per frame
@@ -95,23 +99,19 @@ public class Ennemy : MonoBehaviour {
     public void Alert (Vector3 position) {
         alertTarget = position;
         stateMachine.MoveNext (Command.Alert);
-        Debug.Log ("ALERT");
     }
 
     public void Kill () {
         stateMachine.MoveNext (Command.Die);
-        Debug.Log ("DEAD");
     }
 
     public void PlayerEnterFieldOfVision () {
         stateMachine.MoveNext (Command.Seek);
-        Debug.Log ("SEEK");
     }
 
     public void PlayerExitFieldOfVision () {
         alertTarget = playerTarget;
         stateMachine.MoveNext (Command.LoseTrack);
-        Debug.Log ("ALERT");
     }
 
     //IN - TRIGGER EVENT
@@ -138,7 +138,6 @@ public class Ennemy : MonoBehaviour {
         AlertOthers();
 
         if ((transform.position - playerTarget).magnitude < proximityDistance) {
-            Debug.Log ("WIN !!!! (ENNEMY)");
             stateMachine.MoveNext (Command.Win);
         }
 
@@ -149,7 +148,6 @@ public class Ennemy : MonoBehaviour {
         navMeshAgent.SetDestination (alertTarget);
 
         if ((transform.position - alertTarget).magnitude < proximityDistance) {
-            Debug.Log ("PATROLLING");
             stateMachine.MoveNext (Command.Patrol);
         }
 
