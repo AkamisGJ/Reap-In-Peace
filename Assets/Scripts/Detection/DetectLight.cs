@@ -15,7 +15,7 @@ public class DetectLight : MonoBehaviour {
         ennemy = transform.parent.parent.parent.parent.gameObject.GetComponent<Ennemy>();
 
         if (ennemy == null)
-            Debug.Log("ERROR : no ennemy in Detect Light");
+            Debug.LogError("ERROR : no ennemy in Detect Light");
     }
 
     private void OnTriggerEnter(Collider other)

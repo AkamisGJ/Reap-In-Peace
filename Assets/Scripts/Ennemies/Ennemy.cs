@@ -14,8 +14,8 @@ public class Ennemy : MonoBehaviour {
     public bool backAndForth = true;    // Pour faire des aller retours, ou bien des rondes.
     private NavMeshAgent navMeshAgent;
     private PathFindingNode[] nodes;   
-    private int nodetogo = 0;   // Index of the next node
-    public int step = +1;   // +1 when going over nodes in order. -1 when going in reverse order
+    private int nodetogo = 0;           // Index of the next node
+    public int step = +1;               // +1 when going over nodes in order. -1 when going in reverse order
 
     //Targets
     private Vector3 navMeshTarget = Vector3.zero;
@@ -34,7 +34,7 @@ public class Ennemy : MonoBehaviour {
             player = goPlayer.GetComponent<Player>();
 
         if (player == null)
-            Debug.Log("ERROR : no player ref in Ennemy");
+            Debug.LogError("ERROR : no player ref in Ennemy");
 
         //Init Nav Mesh Agent
         nodes = PathFinding.GetComponentsInChildren<PathFindingNode> ();
@@ -71,10 +71,7 @@ public class Ennemy : MonoBehaviour {
     //EVENTS
     //OUT
     private void AlertOthers () {
-        //TODO
-        //Get Near enemies
-        //For each near ennemis - alert
-
+         //Get Near enemies
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Ennemy");
         foreach(GameObject go in gameObjects)
         {
@@ -89,7 +86,7 @@ public class Ennemy : MonoBehaviour {
                     RaycastHit hit;
                     bool inSight = !Physics.Raycast(transform.position, direction, out hit, direction.magnitude, mask);
                     if (inSight)
-                        ennemy.Alert(playerTarget);
+                        ennemy.Alert(playerTarget);     //For each near ennemis - alert
                 }
             }
         }
@@ -160,6 +157,8 @@ public class Ennemy : MonoBehaviour {
 
     private void Die () {
         navMeshAgent.isStopped = true;
+        //TODO anim?
+        Destroy(gameObject);
     }
 
     //NAV MESH
