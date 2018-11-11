@@ -90,7 +90,11 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.Log("Kill");
             if(other.CompareTag("Boss")){
-                Destroy(other.gameObject);
+                Boss boss = other.GetComponent<Boss>();
+                if (boss != null)
+                {
+                    boss.Kill();
+                }
             }
 
             if (other.CompareTag("Ennemy"))
