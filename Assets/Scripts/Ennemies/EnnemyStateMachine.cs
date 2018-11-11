@@ -39,6 +39,7 @@ public class EnnemyStateMachine {
             { new StateTransition(State.Patrolling, Command.Die),       State.Dead },
             { new StateTransition(State.Alerted,    Command.Die),       State.Dead },
             { new StateTransition(State.Seeking,    Command.Die),       State.Dead },
+            //{ new StateTransition(State.Win,        Command.Die),       State.Dead },
 
             { new StateTransition(State.Patrolling, Command.Alert),     State.Alerted },
             { new StateTransition(State.Seeking,    Command.LoseTrack), State.Alerted },
@@ -47,7 +48,7 @@ public class EnnemyStateMachine {
             { new StateTransition(State.Alerted,    Command.Seek),      State.Seeking },
 
             { new StateTransition(State.Alerted,    Command.Patrol),    State.Patrolling },
-            
+
         };
     }
 
@@ -68,6 +69,7 @@ public class EnnemyStateMachine {
     public State MoveNext(Command command)
     {
         currentState = GetNext(command);
+        Debug.Log("State : " + currentState.ToString());
         return currentState;
     }
 

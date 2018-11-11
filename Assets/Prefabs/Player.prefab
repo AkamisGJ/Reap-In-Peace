@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 4282550044072406}
   - component: {fileID: 198105113784676186}
   - component: {fileID: 199704313765180004}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: VFX Ombre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 95121545656539394}
   m_Layer: 17
   m_Name: PlayerArms
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 1006759862378142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 13.7, y: 5.72, z: 1.95}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4935618909934076}
   - {fileID: 4520557298783840}
@@ -627,10 +627,10 @@ BoxCollider:
   m_GameObject: {fileID: 1006759862378142}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.22, y: 1.57, z: 4.34}
-  m_Center: {x: 0, y: 0.78, z: 3.08}
+  m_Size: {x: 3.22, y: 1.57, z: 3.5}
+  m_Center: {x: 0, y: 0.78, z: 2.5}
 --- !u!82 &82226001412112000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -799,7 +799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c577eb7024f04a4ab2ead90e14d102a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleOmbre: {fileID: 198105113784676186}
+  visible: 0
+  particleShadow: {fileID: 198105113784676186}
 --- !u!143 &143477205676162658
 CharacterController:
   m_ObjectHideFlags: 1

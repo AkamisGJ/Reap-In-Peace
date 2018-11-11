@@ -37,8 +37,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update () {
-        handleMovement ();
-        handleAttack ();
+        if(gamecontrolleur.PauseState == false){
+            handleMovement ();
+            handleAttack ();
+        }
     }
 
     void handleMovement () {
@@ -77,16 +79,26 @@ public class PlayerController : MonoBehaviour {
     }
     public void ToogleAttack(){
         attack = !attack;
+        Debug.Log("Toggle Attack");
     }
 
     void OnTriggerStay(Collider other)
     {
-        if(other.transform.tag == "Boss" && attack == true){
-            
-            Destroy(other.gameObject);
+        if(attack)
+        {
+            Debug.Log("Kill");
+            if(other.CompareTag("Boss")){
+                Destroy(other.gameObject);
+            }
+
+            if (other.CompareTag("Ennemy"))
+            {
+                Ennemy ennemy = other.GetComponent<Ennemy>();
+                if (ennemy != null)
+                {
+                    ennemy.Kill();
+                }
+            }
         }
     }
-
-    
-
 }
