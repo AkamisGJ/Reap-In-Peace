@@ -708,7 +708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5890069e27f674faadc507d7c83b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ennemy: {fileID: 114309220890623996}
 --- !u!114 &114309220890623996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -720,7 +719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7801995fce8ba41349ea2192be2e861c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   proximityDistance: 2
   alertDistance: 10
   PathFinding: {fileID: 0}
