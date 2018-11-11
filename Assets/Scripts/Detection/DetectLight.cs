@@ -25,6 +25,16 @@ public class DetectLight : MonoBehaviour {
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        Player player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            CheckVisibility(other);
+            //StartCoroutine("CouroutineCheckVisibility", other);
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         Player player = other.GetComponent<Player>();

@@ -15,7 +15,7 @@ public class Ennemy : MonoBehaviour {
 	private NavMeshAgent navMeshAgent;
     private PathFindingNode[] nodes;
     public int startnode;
-    public int nodetogo;
+    private int nodetogo;
 
     //Targets
     private Vector3 navMeshTarget = Vector3.zero;
@@ -37,6 +37,7 @@ public class Ennemy : MonoBehaviour {
         nodetogo = startnode;
         nodes = PathFinding.GetComponentsInChildren<PathFindingNode>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        UpdateNavMeshPath();
         print("Number of Nodes: " + nodes.Length);
 	}
 	
@@ -166,10 +167,10 @@ public class Ennemy : MonoBehaviour {
         int increment = clockwise ? 1 : -1;
         nodetogo += increment;
 
-        if (nodetogo < 0)
+        while (nodetogo < 0)
             nodetogo += nodes.Length;
-        else
-            nodetogo = nodetogo % nodes.Length;
+
+        nodetogo = nodetogo % nodes.Length;
 
         //Update navmesh target
         navMeshTarget = nodes[nodetogo].transform.position;
