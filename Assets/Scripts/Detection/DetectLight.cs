@@ -100,10 +100,7 @@ public class DetectLight : MonoBehaviour {
             {
                 ennemy.PlayerExitFieldOfVision();
                 Debug.Log("Mais t'es ou?");
-            }
-                
+            }    
         }
     }
-
-
 }
