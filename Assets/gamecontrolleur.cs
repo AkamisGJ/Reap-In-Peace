@@ -8,14 +8,17 @@ public class gamecontrolleur : MonoBehaviour {
 	static public bool PauseState = false;
 	private GameObject pauseMenu;
 	private GameObject looseScreen;
+	public bool intro = false;
 
 	void Start()
 	{
-		pauseMenu = GameObject.Find("Pause");
-		looseScreen = GameObject.Find("Loose Screen");
-		pauseMenu.SetActive(false);
-		looseScreen.SetActive(false);
-		Time.timeScale = 1f;
+		if(intro == false){
+			pauseMenu = GameObject.Find("Pause");
+			looseScreen = GameObject.Find("Loose Screen");
+			pauseMenu.SetActive(false);
+			looseScreen.SetActive(false);
+			Time.timeScale = 1f;
+		}
 
 	}
 	
@@ -54,8 +57,15 @@ public class gamecontrolleur : MonoBehaviour {
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")){
+		if((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && intro == false){
 			Pause();
+		}
+
+		if(intro){
+			if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")){
+			LoadNextLevel();
+		}
+
 		}
 	}
 }
