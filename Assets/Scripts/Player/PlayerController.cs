@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.Log("Kill");
             if(other.CompareTag("Boss")){
-                Boss boss = other.GetComponent<Boss>();
+                Boss boss = other.transform.parent.GetComponent<Boss>();
                 if (boss != null)
                 {
                     boss.Kill();
