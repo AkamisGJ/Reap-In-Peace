@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4000717238875650}
   - component: {fileID: 33658181221175618}
   - component: {fileID: 23255924577820860}
+  - component: {fileID: 64434863335376742}
   m_Layer: 0
   m_Name: corbeille
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1062564147876362}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 25.5, y: 1.476, z: 151.989}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,4 +83,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062564147876362}
+  m_Mesh: {fileID: 4300000, guid: 1ef6fa8dea182c642b060f8faa450032, type: 3}
+--- !u!64 &64434863335376742
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062564147876362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1ef6fa8dea182c642b060f8faa450032, type: 3}
