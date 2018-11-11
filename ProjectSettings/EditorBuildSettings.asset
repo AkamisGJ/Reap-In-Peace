@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/_Real Game/Menu.unity
     guid: 857cca599a629794e859556bb16d5a6d
-  - enabled: 1
-    path: Assets/Scenes/Alex Room/Canvas.unity
-    guid: ef90ba9e659d2d3498e836c243408f97
   - enabled: 1
     path: Assets/Scenes/_Real Game/Level2.unity
     guid: 083802f2f2c0e4f65905fd19b1845105
