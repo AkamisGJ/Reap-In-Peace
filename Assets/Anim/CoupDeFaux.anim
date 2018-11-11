@@ -308,7 +308,8 @@ AnimationClip:
   - time: 0.51666665
     functionName: ToogleAttack
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 1006759862378142, guid: 52e3ed5b5d35d40ba9fa5227291e9ba6,
+      type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
