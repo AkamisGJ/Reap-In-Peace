@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 
     private AudioSource soundAttack;
     private AudioSource soundGiveSoul;
+    private Kill_List Kill_List;
 
     void Start () {
         _controller = GetComponent<CharacterController> ();
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour {
         AudioSource[] sounds = GetComponents<AudioSource> ();
         soundAttack = sounds[0];
         soundGiveSoul = sounds[1];
+
+        Kill_List = GameObject.FindObjectOfType<Kill_List>();
 
     }
 
@@ -95,6 +98,7 @@ public class PlayerController : MonoBehaviour {
             Debug.Log ("Kill");
             if (other.CompareTag ("Boss")) {
                 Destroy (other.gameObject);
+                Kill_List.Kill(other.GetComponent<Boss>().name);
             }
 
             if (other.CompareTag ("Ennemy")) {

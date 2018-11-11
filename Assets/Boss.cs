@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour {
 	public float max_velocity = 15f;
 	public float velocity;
 	public Transform[] pathfinding;
+	public string name;
 	
 
 	void OnTriggerStay(Collider other)
