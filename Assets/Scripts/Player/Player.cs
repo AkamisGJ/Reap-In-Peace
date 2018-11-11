@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public GameObject visibilityPoint;
+
 	// Use this for initialization
 	void Start () {
 
@@ -16,6 +18,6 @@ public class Player : MonoBehaviour {
 
     public Vector3 GetVisibilityPoints()
     {
-        return transform.position;
+        return visibilityPoint.transform.position;
     }
 }
