@@ -17,9 +17,17 @@ public class PlayerController : MonoBehaviour {
     int attackAnimationHash = Animator.StringToHash ("CoupDeFaux");
     private bool attack = false;
 
+    private AudioSource soundAttack;
+    private AudioSource soundGiveSoul;
+
     void Start () {
         _controller = GetComponent<CharacterController> ();
         anim = GetComponent<Animator> ();
+
+        AudioSource[] sounds = GetComponents<AudioSource> ();
+        soundAttack = sounds[0];
+        soundGiveSoul = sounds[1];
+
     }
 
     // Used to to make movement
@@ -37,7 +45,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update () {
-        if(gamecontrolleur.PauseState == false){
+        if (gamecontrolleur.PauseState == false) {
             handleMovement ();
             handleAttack ();
         }
@@ -52,8 +60,6 @@ public class PlayerController : MonoBehaviour {
 
         float moveAmount = forwardSpeed * Time.deltaTime;
         _controller.Move (movementDirection * moveAmount - (Vector3.up * gravity * Time.deltaTime));
-
-
 
         if (movementDirection.magnitude > 0) {
             // Store the last direction of any actual movement done.
@@ -74,14 +80,14 @@ public class PlayerController : MonoBehaviour {
 
         if (attacked && !isAttacking) {
             anim.SetTrigger (attackHash);
-            //GetComponent<AudioSource>().PlayDelayed(0.30f);
+            soundGiveSoul.Play ();
         }
     }
-    public void ToogleAttack(){
+    public void ToogleAttack () {
         attack = !attack;
-        Debug.Log("Toggle Attack");
-        if(attack)
-            GetComponent<AudioSource>().Play();
+        Debug.Log ("Toggle Attack");
+        if (attack)
+            soundAttack.Play ();
     }
 
     void OnTriggerStay(Collider other)
@@ -97,12 +103,10 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
-            if (other.CompareTag("Ennemy"))
-            {
-                Ennemy ennemy = other.GetComponent<Ennemy>();
-                if (ennemy != null)
-                {
-                    ennemy.Kill();
+            if (other.CompareTag ("Ennemy")) {
+                Ennemy ennemy = other.GetComponent<Ennemy> ();
+                if (ennemy != null) {
+                    ennemy.Kill ();
                 }
             }
         }
