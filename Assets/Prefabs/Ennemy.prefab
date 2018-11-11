@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 114309220890623996}
   m_Layer: 18
   m_Name: Ennemy
-  m_TagString: Untagged
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5890069e27f674faadc507d7c83b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ennemy: {fileID: 0}
+  ennemy: {fileID: 114309220890623996}
 --- !u!114 &114309220890623996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -721,7 +721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  deltaDistance: 2
+  proximityDistance: 2
+  alertDistance: 10
   PathFinding: {fileID: 0}
   backAndForth: 1
   step: 1

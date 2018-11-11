@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 4282550044072406}
   - component: {fileID: 198105113784676186}
   - component: {fileID: 199704313765180004}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: VFX Ombre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 95121545656539394}
   m_Layer: 17
   m_Name: PlayerArms
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
