@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class Ennemy : MonoBehaviour {
 
     public Player player;
-    public float deltaDistance = 2f;
+    public float proximityDistance = 2f;
+    public float alertDistance = 10f;
 
     //Nav Mesh parameters
 
@@ -69,6 +70,25 @@ public class Ennemy : MonoBehaviour {
         //TODO
         //Get Near enemies
         //For each near ennemis - alert
+
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Ennemy");
+        foreach(GameObject go in gameObjects)
+        {
+            Ennemy ennemy = go.GetComponent<Ennemy>();
+            if(ennemy != null)
+            {
+                Vector3 direction = ennemy.transform.position - transform.position;
+                if (direction.magnitude < alertDistance)
+                {
+                    int mask = 1 << LayerMask.NameToLayer("Environnement");
+                    Debug.DrawRay(transform.position, direction, Color.red);
+                    RaycastHit hit;
+                    bool inSight = !Physics.Raycast(transform.position, direction, out hit, direction.magnitude, mask);
+                    if (inSight)
+                        ennemy.Alert(playerTarget);
+                }
+            }
+        }
     }
 
     //IN
@@ -115,7 +135,9 @@ public class Ennemy : MonoBehaviour {
         playerTarget = player.transform.position;
         navMeshAgent.SetDestination (playerTarget);
 
-        if ((transform.position - playerTarget).magnitude < deltaDistance) {
+        AlertOthers();
+
+        if ((transform.position - playerTarget).magnitude < proximityDistance) {
             Debug.Log ("WIN !!!! (ENNEMY)");
             stateMachine.MoveNext (Command.Win);
         }
@@ -126,7 +148,7 @@ public class Ennemy : MonoBehaviour {
         navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination (alertTarget);
 
-        if ((transform.position - alertTarget).magnitude < deltaDistance) {
+        if ((transform.position - alertTarget).magnitude < proximityDistance) {
             Debug.Log ("PATROLLING");
             stateMachine.MoveNext (Command.Patrol);
         }
