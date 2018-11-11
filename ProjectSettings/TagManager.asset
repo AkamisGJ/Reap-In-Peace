@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Boss
   - Ennemy
+  - OldBoss
   layers:
   - Default
   - TransparentFX

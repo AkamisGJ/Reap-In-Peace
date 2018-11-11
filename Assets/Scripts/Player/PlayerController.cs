@@ -116,6 +116,15 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
+               if(other.CompareTag("OldBoss")){
+                oldboss boss = other.transform.parent.GetComponent<oldboss>();
+                if (boss != null)
+                {
+                    Destroy(boss.gameObject);
+                    //KillList
+                }
+            }
+
             if (other.CompareTag ("Ennemy")) {
                 Ennemy ennemy = other.GetComponent<Ennemy> ();
                 if (ennemy != null) {
