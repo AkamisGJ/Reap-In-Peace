@@ -15,20 +15,22 @@ public class Visibility : MonoBehaviour {
 
     public void SetVisibility(bool visibility)
     {
-
         if(visible != visibility)
         {
             visible = visibility;
+            UpdateVisibilityEffect();
+        }
+    }
 
+    public void UpdateVisibilityEffect()
+    {
+        //TODO MODIFY
+        if(meshRenderer != null)
+        {
             if (visible)
                 meshRenderer.material.SetColor("_Color", Color.red);
             else
                 meshRenderer.material.SetColor("_Color", Color.white);
         }
-    }
-
-    public Vector3 GetVisibilityPoints()
-    {
-        return transform.position;
     }
 }

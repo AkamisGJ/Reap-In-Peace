@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Node
+  - FxTemporaire
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -27,7 +29,10 @@ TagManager:
   - Ennemy
   - VisionEnnemy
   - Node
-  - Environement
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

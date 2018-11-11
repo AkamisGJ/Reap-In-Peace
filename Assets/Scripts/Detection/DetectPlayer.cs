@@ -6,12 +6,12 @@ using UnityEngine.AI;
 
 
 public class DetectPlayer : MonoBehaviour {
-	private ennemy parent;
+	private Ennemy parent;
 	private NavMeshAgent navMesh;
 
 	// Use this for initialization
 	void Start () {
-		parent = GetComponentInParent<ennemy>();
+		parent = GetComponentInParent<Ennemy>();
 		navMesh = GetComponentInParent<NavMeshAgent>();
 	}
 	
@@ -23,22 +23,20 @@ public class DetectPlayer : MonoBehaviour {
 	/// <param name="other">The other Collider involved in this collision.</param>
 	void OnTriggerStay(Collider other)
 	{
-		if(other.tag == "Player"){
-			
-			print("Find Player");
-			parent.findplayer = true;
-			navMesh.SetDestination(other.transform.position);
-
-		}
+        //if(other.tag == "Player"){
+        //    print("Find Player");
+        //    parent.findplayer = true;
+        //    navMesh.SetDestination(other.transform.position);
+        //}
 		
 	}
 
 	
 	void OnTriggerExit(Collider other)
 	{
-		if(other.tag == "Player"){
-			print("Stop Find Player");
-			parent.findplayer = false;
-		}
+		//if(other.tag == "Player"){
+		//	print("Stop Find Player");
+		//	parent.findplayer = false;
+		//}
 	}
 }

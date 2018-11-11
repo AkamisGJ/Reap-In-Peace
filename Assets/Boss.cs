@@ -10,7 +10,6 @@ public class Boss : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
 
 	void OnTriggerStay(Collider other)
 	{
