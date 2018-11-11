@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class gamecontrolleur : MonoBehaviour {
 
 	static public bool PauseState = false;
-	private Canvas pauseMenu;
+	private GameObject pauseMenu;
 
 	void Start()
 	{
-		pauseMenu = GetComponent<Canvas>();
-		pauseMenu.enabled = false;
+		pauseMenu = GameObject.Find("Pause");
+		pauseMenu.SetActive(false);
 
 	}
 	
@@ -23,15 +23,19 @@ public class gamecontrolleur : MonoBehaviour {
 		Application.Quit();
 	}
 
+	public void RestartLevel(){
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
 	public void Pause(){
 		PauseState = !PauseState;
 		if(PauseState){
+			pauseMenu.SetActive(true);
 			Time.timeScale = 0f;
-			pauseMenu.enabled = true;
 			print("Pause");
 		}else{
+			pauseMenu.SetActive(false);
 			Time.timeScale = 1f;
-			pauseMenu.enabled = false;
 			print("UnPause");
 		}
 	}

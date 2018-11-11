@@ -8,12 +8,20 @@ public class Kill_List : MonoBehaviour {
 	public Image monsanto_kill;
 	public Image bolore_kill;
 	public Image trump_kill;
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	public void Kill(string name){
+		switch(name){
+			case "monsanto":
+				monsanto_kill.enabled = true;
+			break;
+
+			case "bolore":
+				bolore_kill.enabled = true;
+			break;
+
+			case "trump":
+				trump_kill.enabled = true;
+			break;
+		}
 	}
 }
