@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4478276625105032}
   - component: {fileID: 33604724406171034}
   - component: {fileID: 23252035118968688}
+  - component: {fileID: 64473570295262864}
   m_Layer: 0
   m_Name: Porte_simple
   m_TagString: Untagged
@@ -82,4 +83,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1812215754615386}
+  m_Mesh: {fileID: 4300000, guid: ac422888407c177488ae2dc7cde57f12, type: 3}
+--- !u!64 &64473570295262864
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812215754615386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ac422888407c177488ae2dc7cde57f12, type: 3}

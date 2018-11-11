@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4146062799160582}
   - component: {fileID: 33219352442835184}
   - component: {fileID: 23655168195575568}
+  - component: {fileID: 64935221904727414}
   m_Layer: 0
   m_Name: Porte_Gauche
   m_TagString: Untagged
@@ -53,6 +54,7 @@ GameObject:
   - component: {fileID: 4190555682222824}
   - component: {fileID: 33008356981156322}
   - component: {fileID: 23307026413939540}
+  - component: {fileID: 64369544733703572}
   m_Layer: 0
   m_Name: Porte_Gauche1
   m_TagString: Untagged
@@ -184,4 +186,32 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723266456429838}
+  m_Mesh: {fileID: 4300000, guid: 73e7806ca7cc4f44cb786770fb03c25f, type: 3}
+--- !u!64 &64369544733703572
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822268200361346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 73e7806ca7cc4f44cb786770fb03c25f, type: 3}
+--- !u!64 &64935221904727414
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723266456429838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 73e7806ca7cc4f44cb786770fb03c25f, type: 3}
