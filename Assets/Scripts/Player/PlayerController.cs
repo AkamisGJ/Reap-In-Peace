@@ -93,16 +93,6 @@ public class PlayerController : MonoBehaviour {
             soundAttack.Play ();
     }
 
-    // void OnTriggerStay (Collider other) {
-    //     if (attack) {
-    //         Debug.Log ("Kill");
-    //         if (other.CompareTag ("Boss")) {
-    //             Destroy (other.gameObject);
-    //             Kill_List.Kill(other.GetComponent<Boss>().name);
-    //         }
-    //     }
-    // }
-
     void OnTriggerStay(Collider other)
     {
         if(attack)
@@ -117,11 +107,12 @@ public class PlayerController : MonoBehaviour {
             }
 
                if(other.CompareTag("OldBoss")){
-                oldboss boss = other.transform.parent.GetComponent<oldboss>();
+                oldboss boss = other.transform.GetComponent<oldboss>();
                 if (boss != null)
                 {
+                    other.GetComponent<oldboss>().GoingToDie();
                     Destroy(boss.gameObject);
-                    //KillList
+                    
                 }
             }
 
