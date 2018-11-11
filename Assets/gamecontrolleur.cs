@@ -23,6 +23,10 @@ public class gamecontrolleur : MonoBehaviour {
 		Application.Quit();
 	}
 
+	public void RestartLevel(){
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
 	public void Pause(){
 		PauseState = !PauseState;
 		if(PauseState){
