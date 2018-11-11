@@ -172,11 +172,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4848538333067606, guid: 1a243934066702f4193b823cfb06ac76, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.349987
+      value: 4.34
       objectReference: {fileID: 0}
     - target: {fileID: 4848538333067606, guid: 1a243934066702f4193b823cfb06ac76, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -23.419998
+      value: -19.54
       objectReference: {fileID: 0}
     - target: {fileID: 4848538333067606, guid: 1a243934066702f4193b823cfb06ac76, type: 2}
       propertyPath: m_LocalRotation.x
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 2359
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -647,7 +647,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 5f69219f519d3ce41b10f81453695a28, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6fb48ad779ba8e344ac8b718c7d08c5c, type: 2}
 --- !u!1 &1128637242
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +762,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4848538333067606, guid: 1a243934066702f4193b823cfb06ac76, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.63
+      value: 4.322
       objectReference: {fileID: 0}
     - target: {fileID: 4848538333067606, guid: 1a243934066702f4193b823cfb06ac76, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1173,7 +1173,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 65830561846453634, guid: 52e3ed5b5d35d40ba9fa5227291e9ba6,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 95121545656539394, guid: 52e3ed5b5d35d40ba9fa5227291e9ba6, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 52e3ed5b5d35d40ba9fa5227291e9ba6, type: 2}
   m_IsPrefabAsset: 0
 --- !u!114 &1961713863 stripped
