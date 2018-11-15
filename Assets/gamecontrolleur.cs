@@ -9,10 +9,11 @@ public class gamecontrolleur : MonoBehaviour {
 	private GameObject pauseMenu;
 	private GameObject looseScreen;
 	public bool intro = false;
+	public bool main_menu = false;
 
 	void Start()
 	{
-		if(intro == false){
+		if(main_menu == false && intro == false){
 			pauseMenu = GameObject.Find("Pause");
 			looseScreen = GameObject.Find("Loose Screen");
 			pauseMenu.SetActive(false);
@@ -57,12 +58,14 @@ public class gamecontrolleur : MonoBehaviour {
 
 	void Update()
 	{
-		if((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && intro == false){
-			Pause();
+		if(main_menu == false){
+			if((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && intro == false){
+				Pause();
+			}
 		}
 
 		if(intro){
-			if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")){
+			if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause") || Input.GetButtonDown("Fire1")){
 			LoadNextLevel();
 		}
 
